@@ -17,9 +17,10 @@
       background: radial-gradient(circle at top, #ff4500 0, #1a0505 40%, #0a0202 100%);
       display: flex;
       justify-content: center;
-      align-items: center;
-      padding: 20px;
-      overflow: hidden;
+      align-items: flex-start;
+      padding: 40px 20px;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
     .sparks {
       position: fixed;
@@ -132,6 +133,71 @@
       left: 13px;
       top: 18px;
       animation: flameFlicker 2s ease-in-out infinite reverse;
+    }
+    
+    /* Đầu lâu và súng đạn bên trái */
+    .skull-left {
+      position: fixed;
+      left: 3%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 80px;
+      opacity: 0.15;
+      filter: drop-shadow(0 0 20px rgba(255,69,0,0.8));
+      animation: floatSkull 6s ease-in-out infinite;
+      z-index: 0;
+    }
+    
+    /* Súng đạn bên phải */
+    .gun-right {
+      position: fixed;
+      right: 3%;
+      top: 35%;
+      transform: translateY(-50%) rotate(-15deg);
+      font-size: 70px;
+      opacity: 0.15;
+      filter: drop-shadow(0 0 20px rgba(255,140,0,0.8));
+      animation: floatGun 5s ease-in-out infinite;
+      z-index: 0;
+    }
+    
+    /* Đầu lâu nhỏ bên phải */
+    .skull-right {
+      position: fixed;
+      right: 5%;
+      bottom: 25%;
+      font-size: 60px;
+      opacity: 0.12;
+      filter: drop-shadow(0 0 15px rgba(255,69,0,0.7));
+      animation: floatSkull 7s ease-in-out infinite reverse;
+      z-index: 0;
+    }
+    
+    /* Đạn bên trái */
+    .bullet-left {
+      position: fixed;
+      left: 8%;
+      bottom: 30%;
+      font-size: 50px;
+      opacity: 0.15;
+      filter: drop-shadow(0 0 15px rgba(255,140,0,0.7));
+      animation: floatBullet 4s ease-in-out infinite;
+      z-index: 0;
+    }
+    
+    @keyframes floatSkull {
+      0%, 100% { transform: translateY(-50%) rotate(0deg); }
+      50% { transform: translateY(-60%) rotate(5deg); }
+    }
+    
+    @keyframes floatGun {
+      0%, 100% { transform: translateY(-50%) rotate(-15deg); }
+      50% { transform: translateY(-40%) rotate(-10deg); }
+    }
+    
+    @keyframes floatBullet {
+      0%, 100% { transform: translateY(0) rotate(45deg); }
+      50% { transform: translateY(-15px) rotate(50deg); }
     }
     @keyframes flameFlicker {
       0%, 100% { opacity: 0.9; transform: scale(1) translateY(0); }
@@ -439,6 +505,12 @@
   <div class="flame right"></div>
   <div class="flame top"></div>
   <div class="flame bottom"></div>
+  
+  <!-- Đầu lâu và súng đạn trang trí -->
+  <div class="skull-left">💀</div>
+  <div class="gun-right">🔫</div>
+  <div class="skull-right">💀</div>
+  <div class="bullet-left">💥</div>
   
   <div class="card">
     <div class="flame-ring"></div>
