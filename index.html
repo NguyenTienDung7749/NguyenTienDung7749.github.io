@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dzun9f | Galaxy Music Zone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #e5e9ff;
+      background: radial-gradient(circle at top, #4b6fff 0, #070b1e 40%, #02030a 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    /* Lớp sao nhỏ */
+    .stars {
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,0.7) 0, transparent 50%),
+        radial-gradient(1.5px 1.5px at 80% 30%, rgba(173,216,255,0.7) 0, transparent 50%),
+        radial-gradient(2px 2px at 30% 80%, rgba(255,255,255,0.7) 0, transparent 50%),
+        radial-gradient(1.2px 1.2px at 60% 60%, rgba(200,220,255,0.7) 0, transparent 50%);
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .stars.slow {
+      animation: drift 40s linear infinite;
+    }
+    .stars.fast {
+      animation: drift 22s linear infinite reverse;
+      opacity: 0.25;
+    }
+
+    @keyframes drift {
+      from { transform: translate3d(0,0,0); }
+      to   { transform: translate3d(-80px,-80px,0); }
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 640px;
+      background: radial-gradient(circle at top left, rgba(109,147,255,0.28), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(255,61,175,0.25), transparent 55%),
+                  rgba(6, 9, 30, 0.94);
+      border-radius: 22px;
+      border: 1px solid rgba(147, 197, 253, 0.5);
+      box-shadow: 0 0 35px rgba(15, 23, 42, 0.9);
+      padding: 24px 24px 30px;
+      overflow: hidden;
+    }
+
+    .orbit-ring {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 1px dashed rgba(148, 163, 253, 0.5);
+      top: -110px;
+      right: -90px;
+      opacity: 0.6;
+      filter: blur(0.2px);
+    }
+
+    .orbit-dot {
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #f97316;
+      top: 18px;
+      right: 44px;
+      box-shadow: 0 0 14px rgba(248, 250, 252, 0.9);
+      animation: orbitDot 11s linear infinite;
+      transform-origin: -90px 110px;
+    }
+
+    @keyframes orbitDot {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #38bdf8 0, #0f172a 55%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(191, 219, 254, 0.8);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.9);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    .title-block h1 {
+      font-size: 26px;
+      color: #e0f2fe;
+      text-shadow: 0 0 18px rgba(129, 140, 248, 0.9);
+      margin-bottom: 4px;
+    }
+
+    .title-block h2 {
+      font-size: 15px;
+      color: #c7d2fe;
+      margin-bottom: 4px;
+    }
+
+    .title-block .sub {
+      font-size: 13px;
+      color: #9ca3ff;
+    }
+
+    .divider {
+      margin: 16px 0 18px;
+      height: 1px;
+      border: none;
+      background: linear-gradient(to right, transparent, #60a5fa, #e879f9, transparent);
+      opacity: 0.9;
+    }
+
+    .info {
+      font-size: 14px;
+      color: #e5e7eb;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .info span.highlight {
+      color: #a5b4fc;
+      font-weight: 500;
+    }
+
+    .audio-box {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 16px;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      padding: 14px 14px 10px;
+      box-shadow: 0 0 22px rgba(15, 23, 42, 0.9);
+      margin-bottom: 10px;
+    }
+
+    .audio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .audio-header span.left {
+      color: #bfdbfe;
+      font-weight: 600;
+    }
+
+    .audio-header span.right {
+      color: #a5b4fc;
+      font-style: italic;
+    }
+
+    audio {
+      width: 100%;
+      outline: none;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #c4b5fd;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #9ca3af;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(129, 140, 248, 0.9);
+      color: #e5e7eb;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 18px 16px 24px;
+      }
+      .header {
+        align-items: flex-start;
+      }
+      .avatar {
+        width: 64px;
+        height: 64px;
+        font-size: 11px;
+      }
+      .title-block h1 {
+        font-size: 22px;
+      }
+      .title-block h2 {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="stars slow"></div>
+<div class="stars fast"></div>
+
+<div class="card">
+  <div class="orbit-ring"></div>
+  <div class="orbit-dot"></div>
+
+  <div class="header">
+    <div class="avatar">
+      DZUN9F<br/>GALAXY
+    </div>
+    <div class="title-block">
+      <h1>Dzun9f Galaxy Music Zone</h1>
+      <h2>Nghe nhạc khi xem code trên GitHub</h2>
+      <div class="sub">Không gian vũ trụ riêng của bạn 🌌</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <p class="info">
+    Mở tab này song song với <span class="highlight">GitHub</span> để vừa xem repo,
+    vừa nghe nhạc nền. Nếu trình duyệt không tự phát, chỉ cần bấm nút
+    <span class="highlight">▶ Play</span> bên dưới.
+  </p>
+
+  <div class="audio-box">
+    <div class="audio-header">
+      <span class="left">🎧 Track chính</span>
+      <span class="right">Loop • Galaxy vibe</span>
+    </div>
+
+    <audio controls autoplay loop id="bgm">
+      <source src="music.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ thẻ audio.
+    </audio>
+  </div>
+
+  <div class="note">
+    💡 Tip: Ghim tab này, chỉnh âm lượng nhỏ thôi để nghe lâu mà không mệt.
+  </div>
+
+  <div class="footer">
+    <span class="tag">Dzun9f • Galaxy Mode</span>
+    <span>Hosted on GitHub Pages</span>
+  </div>
+</div>
+
+</body>
+</html>
