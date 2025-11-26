@@ -10,7 +10,6 @@
       margin: 0;
       padding: 0;
     }
-
     body {
       min-height: 100vh;
       font-family: "Segoe UI", Arial, sans-serif;
@@ -22,13 +21,10 @@
       padding: 20px;
       overflow: hidden;
     }
-
-    /* Hiệu ứng tia lửa */
     .sparks {
       position: fixed;
       inset: 0;
-      background-image:
-        radial-gradient(3px 3px at 15% 25%, rgba(255,140,0,0.9) 0, transparent 50%),
+      background-image: radial-gradient(3px 3px at 15% 25%, rgba(255,140,0,0.9) 0, transparent 50%),
         radial-gradient(2px 2px at 85% 35%, rgba(255,69,0,0.8) 0, transparent 50%),
         radial-gradient(2.5px 2.5px at 40% 75%, rgba(255,215,0,0.9) 0, transparent 50%),
         radial-gradient(2px 2px at 70% 65%, rgba(255,100,0,0.85) 0, transparent 50%),
@@ -37,7 +33,6 @@
       pointer-events: none;
       z-index: 0;
     }
-
     .sparks.slow {
       animation: rise 5s ease-in-out infinite;
     }
@@ -45,41 +40,33 @@
       animation: rise 3s ease-in-out infinite reverse;
       opacity: 0.5;
     }
-
     @keyframes rise {
       0% { transform: translate3d(0,0,0); opacity: 0.7; }
       50% { transform: translate3d(10px,-120px,0); opacity: 1; }
       100% { transform: translate3d(0,-200px,0); opacity: 0; }
     }
-
-    /* Ngọn lửa cháy xung quanh */
     .flame {
       position: fixed;
       pointer-events: none;
       z-index: 0;
     }
-
-    .flame::before,
-    .flame::after {
+    .flame::before, .flame::after {
       content: '';
       position: absolute;
       border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
       filter: blur(15px);
     }
-
     .flame.left {
       left: 5%;
       top: 20%;
       animation: flameLeft 4s ease-in-out infinite;
     }
-
     .flame.left::before {
       width: 80px;
       height: 140px;
       background: radial-gradient(ellipse at center, rgba(255,140,0,0.8), rgba(255,69,0,0.4), transparent);
       animation: flameFlicker 2s ease-in-out infinite;
     }
-
     .flame.left::after {
       width: 60px;
       height: 100px;
@@ -88,20 +75,17 @@
       top: 20px;
       animation: flameFlicker 1.5s ease-in-out infinite reverse;
     }
-
     .flame.right {
       right: 5%;
       bottom: 15%;
       animation: flameRight 3.5s ease-in-out infinite;
     }
-
     .flame.right::before {
       width: 100px;
       height: 160px;
       background: radial-gradient(ellipse at center, rgba(255,69,0,0.8), rgba(220,20,60,0.4), transparent);
       animation: flameFlicker 2.5s ease-in-out infinite;
     }
-
     .flame.right::after {
       width: 70px;
       height: 110px;
@@ -110,21 +94,18 @@
       top: 25px;
       animation: flameFlicker 1.8s ease-in-out infinite reverse;
     }
-
     .flame.top {
       top: 5%;
       left: 50%;
       transform: translateX(-50%);
       animation: flameTop 3s ease-in-out infinite;
     }
-
     .flame.top::before {
       width: 90px;
       height: 120px;
       background: radial-gradient(ellipse at center, rgba(255,100,0,0.8), rgba(255,50,0,0.4), transparent);
       animation: flameFlicker 2.2s ease-in-out infinite;
     }
-
     .flame.top::after {
       width: 65px;
       height: 90px;
@@ -133,20 +114,17 @@
       top: 15px;
       animation: flameFlicker 1.6s ease-in-out infinite reverse;
     }
-
     .flame.bottom {
       bottom: 5%;
       left: 30%;
       animation: flameBottom 4.5s ease-in-out infinite;
     }
-
     .flame.bottom::before {
       width: 85px;
       height: 130px;
       background: radial-gradient(ellipse at center, rgba(255,140,0,0.7), rgba(255,69,0,0.3), transparent);
       animation: flameFlicker 2.8s ease-in-out infinite;
     }
-
     .flame.bottom::after {
       width: 60px;
       height: 95px;
@@ -155,62 +133,42 @@
       top: 18px;
       animation: flameFlicker 2s ease-in-out infinite reverse;
     }
-
     @keyframes flameFlicker {
-      0%, 100% { 
-        opacity: 0.9; 
-        transform: scale(1) translateY(0); 
-      }
-      25% { 
-        opacity: 1; 
-        transform: scale(1.05) translateY(-5px); 
-      }
-      50% { 
-        opacity: 0.8; 
-        transform: scale(0.95) translateY(-3px); 
-      }
-      75% { 
-        opacity: 1; 
-        transform: scale(1.03) translateY(-7px); 
-      }
+      0%, 100% { opacity: 0.9; transform: scale(1) translateY(0); }
+      25% { opacity: 1; transform: scale(1.05) translateY(-5px); }
+      50% { opacity: 0.8; transform: scale(0.95) translateY(-3px); }
+      75% { opacity: 1; transform: scale(1.03) translateY(-7px); }
     }
-
     @keyframes flameLeft {
       0%, 100% { transform: translateY(0) scale(1); }
       50% { transform: translateY(-15px) scale(1.1); }
     }
-
     @keyframes flameRight {
       0%, 100% { transform: translateY(0) scale(1); }
       50% { transform: translateY(15px) scale(1.08); }
     }
-
     @keyframes flameTop {
       0%, 100% { transform: translateX(-50%) scale(1); }
       50% { transform: translateX(-50%) scale(1.12); }
     }
-
     @keyframes flameBottom {
       0%, 100% { transform: translateY(0) scale(1); }
       50% { transform: translateY(-10px) scale(1.06); }
     }
-
-    /* Hiệu ứng ngọn lửa nhấp nháy */
     @keyframes flicker {
       0%, 100% { opacity: 1; filter: brightness(1); }
       25% { opacity: 0.9; filter: brightness(1.3); }
       50% { opacity: 1; filter: brightness(0.9); }
       75% { opacity: 0.95; filter: brightness(1.2); }
     }
-
     .card {
       position: relative;
       z-index: 1;
       width: 100%;
       max-width: 640px;
       background: radial-gradient(circle at top left, rgba(255,69,0,0.35), transparent 55%),
-                  radial-gradient(circle at bottom right, rgba(255,140,0,0.3), transparent 55%),
-                  rgba(20, 5, 5, 0.95);
+        radial-gradient(circle at bottom right, rgba(255,140,0,0.3), transparent 55%),
+        rgba(20, 5, 5, 0.95);
       border-radius: 22px;
       border: 2px solid rgba(255,100,0,0.8);
       box-shadow: 0 0 45px rgba(255,69,0,0.6), 0 0 80px rgba(255,140,0,0.3);
@@ -218,7 +176,6 @@
       overflow: hidden;
       animation: flicker 3s ease-in-out infinite;
     }
-
     .flame-ring {
       position: absolute;
       width: 280px;
@@ -231,12 +188,10 @@
       filter: blur(0.3px);
       animation: rotate 15s linear infinite;
     }
-
     @keyframes rotate {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
-
     .flame-dot {
       position: absolute;
       width: 12px;
@@ -249,24 +204,20 @@
       animation: orbitFlame 10s linear infinite, pulse 1.5s ease-in-out infinite;
       transform-origin: -90px 110px;
     }
-
     @keyframes orbitFlame {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
-
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.3); }
     }
-
     .header {
       display: flex;
       align-items: center;
       gap: 16px;
       margin-bottom: 22px;
     }
-
     .avatar {
       width: 72px;
       height: 72px;
@@ -283,25 +234,21 @@
       text-align: center;
       animation: flicker 2s ease-in-out infinite;
     }
-
     .title-block h1 {
       font-size: 26px;
       color: #ffe5cc;
       text-shadow: 0 0 25px rgba(255,140,0,1), 0 0 40px rgba(255,69,0,0.8);
       margin-bottom: 4px;
     }
-
     .title-block h2 {
       font-size: 15px;
       color: #ffcc99;
       margin-bottom: 4px;
     }
-
     .title-block .sub {
       font-size: 13px;
       color: #ffb366;
     }
-
     .divider {
       margin: 16px 0 18px;
       height: 2px;
@@ -310,20 +257,17 @@
       opacity: 0.9;
       box-shadow: 0 0 10px rgba(255,140,0,0.8);
     }
-
     .info {
       font-size: 14px;
       color: #ffe5cc;
       margin-bottom: 18px;
       line-height: 1.6;
     }
-
     .info span.highlight {
       color: #ffb366;
       font-weight: 600;
       text-shadow: 0 0 8px rgba(255,140,0,0.8);
     }
-
     .audio-box {
       background: rgba(30, 8, 8, 0.95);
       border-radius: 16px;
@@ -332,7 +276,6 @@
       box-shadow: 0 0 30px rgba(255,69,0,0.5), inset 0 0 15px rgba(255,140,0,0.2);
       margin-bottom: 10px;
     }
-
     .audio-header {
       display: flex;
       justify-content: space-between;
@@ -340,30 +283,115 @@
       margin-bottom: 8px;
       font-size: 13px;
     }
-
     .audio-header span.left {
       color: #ffcc99;
       font-weight: 600;
     }
-
     .audio-header span.right {
       color: #ffb366;
       font-style: italic;
     }
-
     audio {
       width: 100%;
       outline: none;
     }
-
+    
+    /* Playlist Styles */
+    .playlist-container {
+      margin-top: 20px;
+    }
+    .playlist-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding: 0 4px;
+    }
+    .playlist-title {
+      font-size: 16px;
+      color: #ffe5cc;
+      font-weight: 600;
+      text-shadow: 0 0 15px rgba(255,140,0,0.9);
+    }
+    .playlist-count {
+      font-size: 12px;
+      color: #ffb366;
+      background: rgba(255,100,0,0.2);
+      padding: 4px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,100,0,0.5);
+    }
+    .playlist {
+      background: rgba(20, 5, 5, 0.6);
+      border-radius: 12px;
+      border: 1px solid rgba(255,100,0,0.5);
+      overflow: hidden;
+    }
+    .track {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,100,0,0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .track:last-child {
+      border-bottom: none;
+    }
+    .track:hover {
+      background: rgba(255,100,0,0.15);
+      box-shadow: inset 0 0 20px rgba(255,140,0,0.2);
+    }
+    .track.active {
+      background: rgba(255,100,0,0.25);
+      box-shadow: inset 0 0 25px rgba(255,140,0,0.3);
+    }
+    .track-number {
+      font-size: 14px;
+      color: #ff8c42;
+      font-weight: 600;
+      min-width: 24px;
+      text-align: center;
+    }
+    .track.active .track-number {
+      color: #ffa500;
+      text-shadow: 0 0 10px rgba(255,140,0,1);
+    }
+    .track-info {
+      flex: 1;
+    }
+    .track-name {
+      font-size: 14px;
+      color: #ffe5cc;
+      margin-bottom: 2px;
+      font-weight: 500;
+    }
+    .track.active .track-name {
+      color: #ffa500;
+      text-shadow: 0 0 8px rgba(255,140,0,0.8);
+    }
+    .track-artist {
+      font-size: 11px;
+      color: #cc9966;
+    }
+    .track-icon {
+      font-size: 16px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .track.active .track-icon {
+      opacity: 1;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    
     .note {
       font-size: 12px;
       color: #ffcc99;
-      margin-top: 6px;
+      margin-top: 12px;
       font-style: italic;
       text-shadow: 0 0 8px rgba(255,140,0,0.6);
     }
-
     .footer {
       margin-top: 20px;
       font-size: 12px;
@@ -373,7 +401,6 @@
       gap: 10px;
       flex-wrap: wrap;
     }
-
     .tag {
       padding: 2px 10px;
       border-radius: 999px;
@@ -384,7 +411,6 @@
       letter-spacing: 0.8px;
       box-shadow: 0 0 12px rgba(255,140,0,0.6);
     }
-
     @media (max-width: 480px) {
       .card {
         padding: 18px 16px 24px;
@@ -407,60 +433,140 @@
   </style>
 </head>
 <body>
-
-<div class="sparks slow"></div>
-<div class="sparks fast"></div>
-
-<!-- Ngọn lửa xung quanh -->
-<div class="flame left"></div>
-<div class="flame right"></div>
-<div class="flame top"></div>
-<div class="flame bottom"></div>
-
-<div class="card">
-  <div class="flame-ring"></div>
-  <div class="flame-dot"></div>
-
-  <div class="header">
-    <div class="avatar">
-      DZUNG9F<br/>🔥FIRE🔥
+  <div class="sparks slow"></div>
+  <div class="sparks fast"></div>
+  <div class="flame left"></div>
+  <div class="flame right"></div>
+  <div class="flame top"></div>
+  <div class="flame bottom"></div>
+  
+  <div class="card">
+    <div class="flame-ring"></div>
+    <div class="flame-dot"></div>
+    
+    <div class="header">
+      <div class="avatar">
+        DZUNG9F<br/>🔥FIRE🔥
+      </div>
+      <div class="title-block">
+        <h1>Dzung9f Music Zone</h1>
+        <h2>Nhạc Tăng Lực Trên Github</h2>
+        <div class="sub">Không gian bay lắc riêng của cụ 🔥</div>
+      </div>
     </div>
-    <div class="title-block">
-      <h1>Dzung9f Music Zone</h1>
-      <h2>Nhạc Tăng Lực Trên Github</h2>
-      <div class="sub">Không gian bay lắc riêng của cụ 🔥</div>
+    
+    <hr class="divider" />
+    
+    <p class="info">
+      Mở tab này song song với <span class="highlight">GitHub</span> để vừa xem repo, vừa bay lắc. 
+      Nhấn vào bài hát trong playlist để chuyển bài!
+    </p>
+    
+    <div class="audio-box">
+      <div class="audio-header">
+        <span class="left">🔥 Đang phát</span>
+        <span class="right" id="currentTrack">Track 1 • Fire vibe</span>
+      </div>
+      <audio controls autoplay id="bgm">
+        <source src="music1.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ thẻ audio.
+      </audio>
+    </div>
+    
+    <div class="playlist-container">
+      <div class="playlist-header">
+        <span class="playlist-title">🎵 Playlist</span>
+        <span class="playlist-count">5 tracks</span>
+      </div>
+      <div class="playlist">
+        <div class="track active" data-src="music1.mp3" data-name="Trò Đời" data-artist="Ngắn">
+          <span class="track-number">01</span>
+          <div class="track-info">
+            <div class="track-name">Trò Đời</div>
+            <div class="track-artist">Ngắn</div>
+          </div>
+          <span class="track-icon">🔥</span>
+        </div>
+        <div class="track" data-src="music2.mp3" data-name="Qua Từng Khung Hình" data-artist="Ngắn ft Robber">
+          <span class="track-number">02</span>
+          <div class="track-info">
+            <div class="track-name">Qua Từng Khung Hình</div>
+            <div class="track-artist">Ngắn ft Robber</div>
+          </div>
+          <span class="track-icon">🔥</span>
+        </div>
+        <div class="track" data-src="music3.mp3" data-name="Anh Không Muốn Bốc Đầu" data-artist="CCMK ft Cậu Phát">
+          <span class="track-number">03</span>
+          <div class="track-info">
+            <div class="track-name">Anh Không Muốn Bốc Đầu</div>
+            <div class="track-artist">CCMK ft Cậu Phát</div>
+          </div>
+          <span class="track-icon">🔥</span>
+        </div>
+        <div class="track" data-src="music4.mp3" data-name="Giấc Mơ Có Thật" data-artist="Đạt Myn Mix">
+          <span class="track-number">04</span>
+          <div class="track-info">
+            <div class="track-name">Giấc Mơ Có Thật</div>
+            <div class="track-artist">Đạt Myn Mix</div>
+          </div>
+          <span class="track-icon">🔥</span>
+        </div>
+        <div class="track" data-src="music5.mp3" data-name="Bình Xăng To" data-artist="Yb.Rookie ft Xuanpac">
+          <span class="track-number">05</span>
+          <div class="track-info">
+            <div class="track-name">Bình Xăng To</div>
+            <div class="track-artist">Yb.Rookie ft Xuanpac</div>
+          </div>
+          <span class="track-icon">🔥</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="note">
+      🔥 Phải có ý chí thì mới bước lên đỉnh cao.
+    </div>
+    
+    <div class="footer">
+      <span class="tag">Dzung9f • Fire Mode</span>
+      <span>Hosted on GitHub Pages</span>
     </div>
   </div>
 
-  <hr class="divider" />
+  <script>
+    const audio = document.getElementById('bgm');
+    const tracks = document.querySelectorAll('.track');
+    const currentTrackDisplay = document.getElementById('currentTrack');
+    let currentTrackIndex = 0;
 
-  <p class="info">
-    Mở tab này song song với <span class="highlight">GitHub</span> để vừa xem repo,
-    vừa bay lắc. Nếu trình duyệt không tự phát, chỉ cần bấm nút
-    <span class="highlight">▶ Play</span> bên dưới.
-  </p>
+    // Click vào track để đổi bài
+    tracks.forEach((track, index) => {
+      track.addEventListener('click', () => {
+        currentTrackIndex = index;
+        playTrack(index);
+      });
+    });
 
-  <div class="audio-box">
-    <div class="audio-header">
-      <span class="left">🔥 Track chính</span>
-      <span class="right">Loop • Fire vibe</span>
-    </div>
+    // Tự động chuyển bài khi kết thúc
+    audio.addEventListener('ended', () => {
+      currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+      playTrack(currentTrackIndex);
+    });
 
-    <audio controls autoplay loop id="bgm">
-      <source src="music.mp3" type="audio/mpeg">
-      Trình duyệt của bạn không hỗ trợ thẻ audio.
-    </audio>
-  </div>
+    function playTrack(index) {
+      const track = tracks[index];
+      const src = track.getAttribute('data-src');
+      const name = track.getAttribute('data-name');
+      const artist = track.getAttribute('data-artist');
 
-  <div class="note">
-    🔥 Phải có ý chí thì mới bước lên đỉnh cao.
-  </div>
+      // Cập nhật source
+      audio.src = src;
+      audio.play();
 
-  <div class="footer">
-    <span class="tag">Dzung9f • Fire Mode</span>
-    <span>Hosted on GitHub Pages</span>
-  </div>
-</div>
-
+      // Cập nhật UI
+      tracks.forEach(t => t.classList.remove('active'));
+      track.classList.add('active');
+      currentTrackDisplay.textContent = `${name} • ${artist}`;
+    }
+  </script>
 </body>
 </html>
