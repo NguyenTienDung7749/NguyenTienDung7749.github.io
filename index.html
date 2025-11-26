@@ -205,6 +205,74 @@
       background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 170"><defs><linearGradient id="fire5" x1="0%25" y1="100%25" x2="100%25" y2="0%25"><stop offset="0%25" style="stop-color:%2300ffff;stop-opacity:0.9"/><stop offset="50%25" style="stop-color:%23ff4500;stop-opacity:0.9"/><stop offset="100%25" style="stop-color:%23ffff00;stop-opacity:0.8"/></linearGradient></defs><ellipse cx="70" cy="120" rx="45" ry="40" fill="%23111"/><ellipse cx="55" cy="110" rx="14" ry="20" fill="url(%23fire5)"/><ellipse cx="85" cy="110" rx="14" ry="20" fill="url(%23fire5)"/><path d="M 50 140 Q 70 150 90 140" stroke="url(%23fire5)" stroke-width="2.5" fill="none"/><path d="M 70 10 Q 58 25 62 50 Q 52 75 58 95 Q 48 108 52 118 L 88 118 Q 92 108 82 95 Q 88 75 78 50 Q 82 25 70 10 Z" fill="url(%23fire5)" opacity="0.85"/><path d="M 65 15 Q 63 28 66 45 Q 60 62 64 80" stroke="%2300ffff" stroke-width="1.5" fill="none" opacity="0.7"/><ellipse cx="64" cy="30" rx="8" ry="12" fill="%23ffff00" opacity="0.5"/></svg>') center/contain no-repeat;
     }
     
+    /* BTEC Logo bên trái trên */
+    .logo-btec {
+      position: fixed;
+      left: 2%;
+      top: 8%;
+      font-size: 72px;
+      font-weight: 900;
+      color: #ff5500;
+      opacity: 0.4;
+      text-shadow: 0 0 35px rgba(255,69,0,1), 0 0 50px rgba(255,140,0,0.8);
+      animation: floatLogoBtec 7s ease-in-out infinite;
+      z-index: 0;
+      transform: rotate(-10deg);
+      letter-spacing: 8px;
+      font-family: 'Arial Black', sans-serif;
+    }
+    
+    /* FPT Logo bên phải dưới */
+    .logo-fpt {
+      position: fixed;
+      right: 1.5%;
+      bottom: 12%;
+      font-size: 85px;
+      font-weight: 900;
+      opacity: 0.45;
+      animation: floatLogoFpt 6.5s ease-in-out infinite reverse;
+      z-index: 0;
+      transform: rotate(12deg);
+      letter-spacing: 6px;
+      font-family: 'Arial Black', sans-serif;
+      font-style: italic;
+    }
+    
+    .logo-fpt .f {
+      color: #0047bb;
+      text-shadow: 0 0 30px rgba(0,71,187,0.9), 0 0 45px rgba(0,100,255,0.6);
+    }
+    
+    .logo-fpt .p {
+      color: #ff5500;
+      text-shadow: 0 0 30px rgba(255,69,0,1), 0 0 45px rgba(255,140,0,0.7);
+    }
+    
+    .logo-fpt .t {
+      color: #00aa44;
+      text-shadow: 0 0 30px rgba(0,170,68,0.9), 0 0 45px rgba(0,200,100,0.6);
+    }
+    
+    @keyframes floatLogoBtec {
+      0%, 100% { 
+        transform: rotate(-10deg) translateY(0);
+        text-shadow: 0 0 35px rgba(255,69,0,1), 0 0 50px rgba(255,140,0,0.8);
+      }
+      50% { 
+        transform: rotate(-6deg) translateY(-18px);
+        text-shadow: 0 0 45px rgba(255,69,0,1.2), 0 0 65px rgba(255,140,0,1);
+      }
+    }
+    
+    @keyframes floatLogoFpt {
+      0%, 100% { 
+        transform: rotate(12deg) translateY(0);
+      }
+      50% { 
+        transform: rotate(16deg) translateY(-20px);
+      }
+    }
+    
     @keyframes floatSkull {
       0%, 100% { 
         transform: translateY(0) rotate(0deg); 
@@ -550,6 +618,12 @@
   <div class="skull-right"></div>
   <div class="bullet-left"></div>
   <div class="skull-top-right"></div>
+  
+  <!-- BTEC & FPT Logos -->
+  <div class="logo-btec">BTEC</div>
+  <div class="logo-fpt">
+    <span class="f">F</span><span class="p">P</span><span class="t">T</span>
+  </div>
   
   <div class="card">
     <div class="flame-ring"></div>
