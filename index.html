@@ -135,74 +135,108 @@
       animation: flameFlicker 2s ease-in-out infinite reverse;
     }
     
-    /* Fire Skull bên trái */
+    /* Skull Silhouette bên trái - Tối giản, chỉ contour */
     .skull-left {
       position: fixed;
-      left: 2%;
-      top: 35%;
-      width: 180px;
-      height: 200px;
-      opacity: 0.25;
-      filter: drop-shadow(0 0 25px rgba(255,69,0,0.9));
+      left: 3%;
+      top: 38%;
+      width: 140px;
+      height: 140px;
+      opacity: 0.12;
+      filter: blur(0.5px) drop-shadow(0 0 40px rgba(255,69,0,0.95));
       animation: floatSkull 6s ease-in-out infinite;
       z-index: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220"><defs><linearGradient id="fire1" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%23ff4500;stop-opacity:1"/><stop offset="50%25" style="stop-color:%23ffa500;stop-opacity:0.9"/><stop offset="100%25" style="stop-color:%23ffff00;stop-opacity:0.8"/></linearGradient></defs><ellipse cx="100" cy="150" rx="60" ry="50" fill="%23000"/><ellipse cx="80" cy="140" rx="18" ry="25" fill="url(%23fire1)"/><ellipse cx="120" cy="140" rx="18" ry="25" fill="url(%23fire1)"/><path d="M 60 170 Q 100 185 140 170" stroke="url(%23fire1)" stroke-width="3" fill="none"/><path d="M 100 0 Q 85 20 90 50 Q 80 80 85 100 Q 70 115 75 130 L 125 130 Q 130 115 115 100 Q 120 80 110 50 Q 115 20 100 0 Z" fill="url(%23fire1)" opacity="0.8"/><path d="M 90 10 Q 88 25 92 45 Q 85 65 90 85" stroke="%23ffd700" stroke-width="2" fill="none" opacity="0.6"/></svg>') center/contain no-repeat;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.9) 30%, transparent 70%);
+      border-radius: 45% 45% 50% 50%;
+      box-shadow: 
+        inset -20px -20px 30px rgba(255,69,0,0.3),
+        0 0 60px rgba(255,69,0,0.6),
+        0 0 100px rgba(255,140,0,0.4);
     }
     
-    /* AK-47 Fire bên phải */
+    /* Gun Silhouette bên phải - Đơn giản, chỉ hình dạng */
     .gun-right {
       position: fixed;
-      right: 1%;
-      top: 30%;
-      width: 220px;
-      height: 100px;
-      opacity: 0.28;
-      filter: drop-shadow(0 0 20px rgba(255,140,0,0.9));
+      right: 2%;
+      top: 32%;
+      width: 200px;
+      height: 60px;
+      opacity: 0.15;
+      filter: blur(0.8px) drop-shadow(0 0 35px rgba(255,140,0,0.9));
       animation: floatGun 5s ease-in-out infinite;
       z-index: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 100"><defs><linearGradient id="gun" x1="0%25" y1="50%25" x2="100%25" y2="50%25"><stop offset="0%25" style="stop-color:%23333;stop-opacity:1"/><stop offset="70%25" style="stop-color:%23555;stop-opacity:1"/><stop offset="100%25" style="stop-color:%23ff6600;stop-opacity:0.9"/></linearGradient><linearGradient id="fire2" x1="100%25" y1="50%25" x2="120%25" y2="50%25"><stop offset="0%25" style="stop-color:%23ff4500;stop-opacity:1"/><stop offset="50%25" style="stop-color:%23ffa500;stop-opacity:0.8"/><stop offset="100%25" style="stop-color:%23ffff00;stop-opacity:0"/></linearGradient></defs><rect x="10" y="35" width="140" height="18" rx="2" fill="url(%23gun)"/><rect x="150" y="28" width="40" height="32" rx="3" fill="url(%23gun)"/><rect x="30" y="53" width="30" height="15" rx="2" fill="%23444"/><circle cx="70" cy="45" r="4" fill="%23ff6600"/><path d="M 190 44 L 240 35 Q 250 44 240 53 L 190 44 Z" fill="url(%23fire2)"/><ellipse cx="220" cy="44" rx="20" ry="15" fill="%23ffa500" opacity="0.6"/><ellipse cx="235" cy="44" rx="15" ry="12" fill="%23ffff00" opacity="0.5"/></svg>') center/contain no-repeat;
+      background: linear-gradient(90deg, 
+        rgba(0,0,0,0.8) 0%,
+        rgba(0,0,0,0.9) 60%,
+        rgba(255,100,0,0.4) 85%,
+        rgba(255,200,0,0.2) 100%);
+      clip-path: polygon(0 40%, 65% 40%, 65% 25%, 85% 25%, 85% 75%, 65% 75%, 65% 60%, 0 60%);
+      box-shadow: 
+        0 0 50px rgba(255,140,0,0.7),
+        0 0 80px rgba(255,69,0,0.4);
     }
     
-    /* Grenade Fire bên phải dưới */
+    /* Explosion/Grenade Silhouette bên phải dưới */
     .skull-right {
       position: fixed;
-      right: 3%;
-      bottom: 22%;
-      width: 120px;
-      height: 140px;
-      opacity: 0.23;
-      filter: drop-shadow(0 0 18px rgba(255,100,0,0.8));
-      animation: floatSkull 7s ease-in-out infinite reverse;
+      right: 4%;
+      bottom: 25%;
+      width: 100px;
+      height: 100px;
+      opacity: 0.14;
+      filter: blur(1px) drop-shadow(0 0 30px rgba(255,100,0,0.85));
+      animation: pulseExplosion 4s ease-in-out infinite;
       z-index: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 150"><defs><radialGradient id="grenade"><stop offset="0%25" style="stop-color:%23444"/><stop offset="100%25" style="stop-color:%23222"/></radialGradient><linearGradient id="fire3" x1="50%25" y1="0%25" x2="50%25" y2="100%25"><stop offset="0%25" style="stop-color:%23ffff00;stop-opacity:0.9"/><stop offset="50%25" style="stop-color:%23ffa500;stop-opacity:0.8"/><stop offset="100%25" style="stop-color:%23ff4500;stop-opacity:0"/></linearGradient></defs><ellipse cx="60" cy="80" rx="40" ry="45" fill="url(%23grenade)"/><rect x="50" y="35" width="20" height="15" rx="2" fill="%23555"/><rect x="55" y="28" width="10" height="10" rx="1" fill="%23666"/><path d="M 30 50 Q 20 30 25 10 Q 30 0 35 5 Q 32 25 40 45 Z" fill="url(%23fire3)"/><path d="M 60 45 Q 55 25 58 8 Q 62 -2 65 3 Q 63 22 65 42 Z" fill="url(%23fire3)"/><path d="M 90 50 Q 100 30 95 10 Q 90 0 85 5 Q 88 25 80 45 Z" fill="url(%23fire3)"/><line x1="35" y1="70" x2="85" y2="70" stroke="%23666" stroke-width="2"/><line x1="35" y1="85" x2="85" y2="85" stroke="%23666" stroke-width="2"/><line x1="35" y1="100" x2="85" y2="100" stroke="%23666" stroke-width="2"/></svg>') center/contain no-repeat;
+      background: radial-gradient(circle at center, 
+        rgba(255,200,0,0.3) 0%,
+        rgba(255,100,0,0.6) 30%,
+        rgba(0,0,0,0.8) 50%,
+        transparent 70%);
+      border-radius: 50%;
+      box-shadow: 
+        0 0 60px rgba(255,69,0,0.8),
+        inset 0 0 30px rgba(255,140,0,0.4);
     }
     
-    /* Bullet Fire bên trái dưới */
+    /* Bullet Trail bên trái dưới */
     .bullet-left {
       position: fixed;
-      left: 5%;
-      bottom: 28%;
-      width: 100px;
-      height: 130px;
-      opacity: 0.25;
-      filter: drop-shadow(0 0 20px rgba(255,140,0,0.8));
+      left: 6%;
+      bottom: 30%;
+      width: 80px;
+      height: 80px;
+      opacity: 0.16;
+      filter: blur(0.6px) drop-shadow(0 0 35px rgba(255,140,0,0.8));
       animation: floatBullet 4s ease-in-out infinite;
       z-index: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140"><defs><linearGradient id="bullet" x1="50%25" y1="0%25" x2="50%25" y2="100%25"><stop offset="0%25" style="stop-color:%23ffd700"/><stop offset="40%25" style="stop-color:%23b8860b"/><stop offset="100%25" style="stop-color:%238b6914"/></linearGradient><linearGradient id="fire4" x1="50%25" y1="100%25" x2="50%25" y2="0%25"><stop offset="0%25" style="stop-color:%23ff4500;stop-opacity:1"/><stop offset="50%25" style="stop-color:%23ffa500;stop-opacity:0.7"/><stop offset="100%25" style="stop-color:%23ffff00;stop-opacity:0"/></linearGradient></defs><ellipse cx="50" cy="100" rx="12" ry="35" fill="url(%23bullet)"/><path d="M 50 65 L 42 58 L 45 50 L 50 45 L 55 50 L 58 58 Z" fill="%23888"/><path d="M 38 100 Q 30 75 35 50 Q 40 35 42 45 Q 38 65 42 90 Z" fill="url(%23fire4)"/><path d="M 50 105 Q 45 80 48 55 Q 51 40 52 50 Q 50 70 52 95 Z" fill="url(%23fire4)"/><path d="M 62 100 Q 70 75 65 50 Q 60 35 58 45 Q 62 65 58 90 Z" fill="url(%23fire4)"/></svg>') center/contain no-repeat;
+      background: 
+        radial-gradient(ellipse at 70% 50%, rgba(255,200,0,0.4) 0%, transparent 50%),
+        radial-gradient(circle at 30% 50%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 40%, transparent 70%);
+      border-radius: 50%;
+      box-shadow: 
+        0 0 50px rgba(255,140,0,0.7),
+        -30px 0 40px rgba(255,69,0,0.5);
     }
     
-    /* Fire Skull bên phải trên */
+    /* Smoke/Fire Wisp bên phải trên */
     .skull-top-right {
       position: fixed;
-      right: 4%;
-      top: 15%;
-      width: 140px;
+      right: 5%;
+      top: 18%;
+      width: 120px;
       height: 160px;
-      opacity: 0.2;
-      filter: drop-shadow(0 0 22px rgba(255,69,0,0.85));
+      opacity: 0.11;
+      filter: blur(1.5px) drop-shadow(0 0 40px rgba(255,69,0,0.75));
       animation: floatSkull 8s ease-in-out infinite;
       z-index: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 170"><defs><linearGradient id="fire5" x1="0%25" y1="100%25" x2="100%25" y2="0%25"><stop offset="0%25" style="stop-color:%2300ffff;stop-opacity:0.9"/><stop offset="50%25" style="stop-color:%23ff4500;stop-opacity:0.9"/><stop offset="100%25" style="stop-color:%23ffff00;stop-opacity:0.8"/></linearGradient></defs><ellipse cx="70" cy="120" rx="45" ry="40" fill="%23111"/><ellipse cx="55" cy="110" rx="14" ry="20" fill="url(%23fire5)"/><ellipse cx="85" cy="110" rx="14" ry="20" fill="url(%23fire5)"/><path d="M 50 140 Q 70 150 90 140" stroke="url(%23fire5)" stroke-width="2.5" fill="none"/><path d="M 70 10 Q 58 25 62 50 Q 52 75 58 95 Q 48 108 52 118 L 88 118 Q 92 108 82 95 Q 88 75 78 50 Q 82 25 70 10 Z" fill="url(%23fire5)" opacity="0.85"/><path d="M 65 15 Q 63 28 66 45 Q 60 62 64 80" stroke="%2300ffff" stroke-width="1.5" fill="none" opacity="0.7"/><ellipse cx="64" cy="30" rx="8" ry="12" fill="%23ffff00" opacity="0.5"/></svg>') center/contain no-repeat;
+      background: 
+        radial-gradient(ellipse at 50% 80%, rgba(0,0,0,0.7) 20%, transparent 60%),
+        radial-gradient(ellipse at 50% 40%, rgba(255,100,0,0.3) 0%, transparent 70%),
+        radial-gradient(ellipse at 50% 10%, rgba(255,200,0,0.2) 0%, transparent 60%);
+      border-radius: 40% 40% 50% 50% / 30% 30% 70% 70%;
+      box-shadow: 
+        inset 0 -30px 40px rgba(255,69,0,0.3),
+        0 0 70px rgba(255,140,0,0.5);
     }
     
     /* BTEC Logo bên trái trên */
