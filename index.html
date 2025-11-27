@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🔥 DZUNG9F | Fire Zone Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts. googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs. cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -89,7 +89,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(13, 17, 23, 0.9);
+            background: rgba(13, 17, 23, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 2px solid transparent;
             background-clip: padding-box;
@@ -158,14 +158,14 @@
             width: 100%;
         }
 
-        /* Hero Section */
+        /* Hero Section - FIX: Giảm kích thước avatar */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            padding: 100px 50px;
+            padding: 120px 50px 80px; /* Thêm padding-top để tránh nav */
         }
 
         .hero-content {
@@ -173,38 +173,39 @@
             z-index: 10;
         }
 
+        /* FIX: Avatar nhỏ hơn */
         .hero-avatar {
-            width: 200px;
-            height: 200px;
+            width: 120px;  /* Giảm từ 200px xuống 120px */
+            height: 120px; /* Giảm từ 200px xuống 120px */
             border-radius: 50%;
-            border: 5px solid var(--fire-orange);
-            box-shadow: 0 0 50px var(--fire-orange), 0 0 100px var(--fire-red);
-            margin-bottom: 30px;
+            border: 4px solid var(--fire-orange);
+            box-shadow: 0 0 30px var(--fire-orange), 0 0 60px var(--fire-red);
+            margin-bottom: 25px;
             animation: pulse-fire 2s ease-in-out infinite;
             object-fit: cover;
             background: linear-gradient(135deg, var(--fire-orange), var(--fire-red));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 80px;
+            font-size: 50px; /* Giảm font-size */
             margin-left: auto;
             margin-right: auto;
         }
 
         @keyframes pulse-fire {
             0%, 100% {
-                box-shadow: 0 0 50px var(--fire-orange), 0 0 100px var(--fire-red);
+                box-shadow: 0 0 30px var(--fire-orange), 0 0 60px var(--fire-red);
             }
             50% {
-                box-shadow: 0 0 80px var(--fire-orange), 0 0 150px var(--fire-red);
+                box-shadow: 0 0 50px var(--fire-orange), 0 0 100px var(--fire-red);
             }
         }
 
         .hero h1 {
             font-family: 'Orbitron', monospace;
-            font-size: 72px;
+            font-size: 64px; /* Giảm nhẹ */
             font-weight: 900;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             background: linear-gradient(45deg, var(--fire-orange), var(--fire-yellow), #FFD700, var(--fire-orange));
             background-size: 300% 300%;
             -webkit-background-clip: text;
@@ -219,25 +220,25 @@
         }
 
         .hero . subtitle {
-            font-size: 24px;
+            font-size: 20px;
             color: var(--text-gray);
-            margin-bottom: 30px;
-            letter-spacing: 5px;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
             text-transform: uppercase;
         }
 
         .hero .motto {
-            font-size: 20px;
+            font-size: 18px;
             color: var(--fire-yellow);
             font-style: italic;
-            margin-bottom: 40px;
-            padding: 15px 30px;
+            margin-bottom: 30px;
+            padding: 12px 25px;
             border-left: 4px solid var(--fire-orange);
             background: rgba(255, 69, 0, 0.1);
             display: inline-block;
         }
 
-        .cta-buttons {
+        . cta-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
@@ -329,7 +330,7 @@
 
         .about-text p {
             font-size: 18px;
-            line-height: 1.8;
+            line-height: 1. 8;
             margin-bottom: 20px;
             color: var(--text-gray);
         }
@@ -365,7 +366,7 @@
             margin-bottom: 15px;
         }
 
-        .info-card h4 {
+        . info-card h4 {
             font-size: 14px;
             color: var(--text-gray);
             text-transform: uppercase;
@@ -378,25 +379,26 @@
             font-weight: 600;
         }
 
-        /* Skills Section */
-        .skills {
+        /* Skills Section - FIX: Không bị chồng chữ */
+        . skills {
             background: var(--darker-bg);
         }
 
         .skills-grid {
-            max-width: 1200px;
+            max-width: 1400px; /* Tăng max-width */
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr); /* Cố định 3 cột */
+            gap: 40px; /* Tăng gap */
         }
 
-        . skill-category {
+        .skill-category {
             background: rgba(255, 69, 0, 0.05);
             border: 1px solid rgba(255, 69, 0, 0.2);
             border-radius: 20px;
-            padding: 40px;
+            padding: 30px;
             transition: all 0. 3s ease;
+            min-height: 200px; /* Đảm bảo chiều cao tối thiểu */
         }
 
         .skill-category:hover {
@@ -406,40 +408,45 @@
 
         .skill-category h3 {
             font-family: 'Orbitron', monospace;
-            font-size: 22px;
+            font-size: 18px; /* Giảm nhẹ font size */
             color: var(--fire-orange);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
+            white-space: nowrap; /* Không xuống dòng tiêu đề */
         }
 
+        /* FIX: Skill tags - Tránh chồng chéo */
         . skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px; /* Giảm gap */
+            align-items: flex-start;
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, rgba(255, 69, 0, 0.2), rgba(139, 0, 0, 0.2));
+            background: rgba(255, 69, 0, 0.15);
             border: 1px solid var(--fire-orange);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 14px;
+            padding: 8px 16px; /* Giảm padding */
+            border-radius: 20px;
+            font-size: 13px; /* Giảm font size */
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0. 3s ease;
             cursor: default;
+            white-space: nowrap; /* Không wrap text trong tag */
+            flex-shrink: 0; /* Không co lại */
         }
 
         .skill-tag:hover {
             background: var(--fire-orange);
             color: var(--text-light);
-            transform: scale(1.1);
-            box-shadow: 0 5px 20px rgba(255, 69, 0, 0.4);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
         }
 
         /* Projects Section */
-        . projects {
+        .projects {
             background: linear-gradient(180deg, var(--darker-bg), var(--dark-bg));
         }
 
@@ -451,7 +458,7 @@
             gap: 30px;
         }
 
-        . project-card {
+        .project-card {
             background: rgba(13, 17, 23, 0. 8);
             border: 1px solid rgba(255, 69, 0, 0. 3);
             border-radius: 20px;
@@ -476,7 +483,7 @@
             box-shadow: 0 30px 60px rgba(255, 69, 0, 0.3);
         }
 
-        .project-image {
+        . project-image {
             height: 200px;
             background: linear-gradient(135deg, var(--fire-red), var(--fire-orange));
             display: flex;
@@ -502,7 +509,7 @@
             line-height: 1.6;
         }
 
-        . project-tech {
+        .project-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
@@ -547,7 +554,7 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 60px;
-            background: linear-gradient(135deg, rgba(255, 69, 0, 0. 1), rgba(139, 0, 0, 0. 1));
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0. 1), rgba(139, 0, 0, 0.1));
             border: 2px solid var(--fire-orange);
             border-radius: 30px;
             position: relative;
@@ -654,7 +661,7 @@
             box-shadow: 0 20px 40px rgba(255, 69, 0, 0.4);
         }
 
-        . contact-text {
+        .contact-text {
             font-size: 20px;
             color: var(--text-gray);
             max-width: 600px;
@@ -695,6 +702,12 @@
             transition: all 0. 3s ease;
         }
 
+        @media (max-width: 1200px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 cột cho tablet */
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
                 padding: 15px 20px;
@@ -704,12 +717,12 @@
                 display: flex;
             }
 
-            .nav-links {
+            . nav-links {
                 position: absolute;
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(13, 17, 23, 0.98);
+                background: rgba(13, 17, 23, 0. 98);
                 flex-direction: column;
                 padding: 20px;
                 gap: 20px;
@@ -720,13 +733,23 @@
                 display: flex;
             }
 
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
             .hero h1 {
                 font-size: 36px;
             }
 
             .hero . subtitle {
-                font-size: 16px;
+                font-size: 14px;
                 letter-spacing: 2px;
+            }
+
+            .hero-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
             }
 
             section {
@@ -734,11 +757,32 @@
             }
 
             .section-title {
-                font-size: 32px;
+                font-size: 28px;
             }
 
             .about-content {
                 grid-template-columns: 1fr;
+            }
+
+            /* FIX: Skills responsive - 1 cột */
+            . skills-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .skill-category {
+                padding: 25px;
+            }
+
+            .skill-category h3 {
+                font-size: 16px;
+                flex-wrap: wrap;
+                white-space: normal;
+            }
+
+            .skill-tag {
+                padding: 6px 12px;
+                font-size: 12px;
             }
 
             . philosophy-cards {
@@ -751,7 +795,16 @@
             }
 
             .quote-text {
-                font-size: 22px;
+                font-size: 20px;
+            }
+
+            .quote-container {
+                padding: 40px 20px;
+            }
+
+            .quote-container::before,
+            .quote-container::after {
+                font-size: 60px;
             }
         }
 
@@ -809,7 +862,7 @@
         <div class="about-content">
             <div class="about-text">
                 <p>Xin chào!  Mình là <strong>Nguyễn Tiến Dũng</strong>, hay còn gọi là <strong>Dzung9f</strong>.  Hiện tại mình đang là sinh viên tại <strong>BTEC FPT</strong>.</p>
-                <p>Mình đam mê <strong>lập trình</strong>, <strong>âm nhạc</strong> và luôn tìm kiếm những thử thách mới để phát triển bản thân.  Với mình, <strong>Code + Music = Fire Mode</strong> 🔥</p>
+                <p>Mình đam mê <strong>lập trình</strong>, <strong>âm nhạc</strong> và luôn tìm kiếm những thử thách mới để phát triển bản thân. Với mình, <strong>Code + Music = Fire Mode</strong> 🔥</p>
                 <p>Mình tin rằng: <strong>"Sống làm sao thì phải sống cho chất.  Đừng chưa cho đi mà đã sợ lo mất."</strong></p>
             </div>
             <div class="info-cards">
@@ -865,7 +918,7 @@
                 <div class="skill-tags">
                     <span class="skill-tag">Data Structures</span>
                     <span class="skill-tag">Algorithms</span>
-                    <span class="skill-tag">Web Development</span>
+                    <span class="skill-tag">Web Dev</span>
                     <span class="skill-tag">IoT</span>
                     <span class="skill-tag">Database</span>
                 </div>
@@ -897,7 +950,7 @@
                 <div class="project-image">💻</div>
                 <div class="project-content">
                     <h3>DSA Practice</h3>
-                    <p>Tổng hợp các bài tập và giải thuật Data Structures & Algorithms đang học.</p>
+                    <p>Tổng hợp các bài tập và giải thuật Data Structures & Algorithms đang học. </p>
                     <div class="project-tech">
                         <span>Java</span>
                         <span>Python</span>
@@ -911,7 +964,7 @@
             <div class="project-card fade-in">
                 <div class="project-image">🔥</div>
                 <div class="project-content">
-                    <h3>More Coming Soon... </h3>
+                    <h3>More Coming Soon...</h3>
                     <p>Nhiều dự án thú vị đang được phát triển.  Stay tuned!  🚀</p>
                     <div class="project-tech">
                         <span>Coming Soon</span>
@@ -934,11 +987,11 @@
         <div class="philosophy-cards">
             <div class="philosophy-card fade-in">
                 <h3>🔥 Fire Mindset</h3>
-                <p>Sống làm sao thì phải sống cho chất. Đừng chưa cho đi mà đã sợ lo mất.  Never stop learning, never stop rising!</p>
+                <p>Sống làm sao thì phải sống cho chất.  Đừng chưa cho đi mà đã sợ lo mất.  Never stop learning, never stop rising!</p>
             </div>
             <div class="philosophy-card fade-in">
                 <h3>🎵 Code with Music</h3>
-                <p>Code + Music = Fire Mode.  Trong xã hội này nhiều cám dỗ đang bủa vây.  Nếu không tỉnh táo mày chỉ có đo đất. </p>
+                <p>Code + Music = Fire Mode. Trong xã hội này nhiều cám dỗ đang bủa vây.  Nếu không tỉnh táo mày chỉ có đo đất. </p>
             </div>
         </div>
     </section>
@@ -971,7 +1024,7 @@
             const fireBg = document. getElementById('fireBg');
             for (let i = 0; i < 50; i++) {
                 const particle = document.createElement('div');
-                particle.className = 'particle';
+                particle. className = 'particle';
                 particle. style.left = Math.random() * 100 + '%';
                 particle.style.animationDelay = Math.random() * 4 + 's';
                 particle.style.animationDuration = (3 + Math.random() * 2) + 's';
