@@ -121,7 +121,7 @@
             50% { opacity: 0.8; }
         }
 
-        . nav-links {
+        .nav-links {
             display: flex;
             gap: 40px;
             list-style: none;
@@ -146,10 +146,10 @@
             width: 0;
             height: 2px;
             background: linear-gradient(90deg, var(--fire-orange), var(--fire-yellow));
-            transition: width 0.3s ease;
+            transition: width 0. 3s ease;
         }
 
-        .nav-links a:hover {
+        . nav-links a:hover {
             color: var(--fire-orange);
             text-shadow: 0 0 20px var(--fire-orange);
         }
@@ -158,14 +158,14 @@
             width: 100%;
         }
 
-        /* Hero Section - FIX: Giảm kích thước avatar */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            padding: 120px 50px 80px; /* Thêm padding-top để tránh nav */
+            padding: 120px 50px 80px;
         }
 
         .hero-content {
@@ -173,10 +173,9 @@
             z-index: 10;
         }
 
-        /* FIX: Avatar nhỏ hơn */
         .hero-avatar {
-            width: 120px;  /* Giảm từ 200px xuống 120px */
-            height: 120px; /* Giảm từ 200px xuống 120px */
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             border: 4px solid var(--fire-orange);
             box-shadow: 0 0 30px var(--fire-orange), 0 0 60px var(--fire-red);
@@ -187,7 +186,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 50px; /* Giảm font-size */
+            font-size: 50px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -203,7 +202,7 @@
 
         .hero h1 {
             font-family: 'Orbitron', monospace;
-            font-size: 64px; /* Giảm nhẹ */
+            font-size: 64px;
             font-weight: 900;
             margin-bottom: 15px;
             background: linear-gradient(45deg, var(--fire-orange), var(--fire-yellow), #FFD700, var(--fire-orange));
@@ -330,7 +329,7 @@
 
         .about-text p {
             font-size: 18px;
-            line-height: 1. 8;
+            line-height: 1.8;
             margin-bottom: 20px;
             color: var(--text-gray);
         }
@@ -379,74 +378,85 @@
             font-weight: 600;
         }
 
-        /* Skills Section - FIX: Không bị chồng chữ */
-        . skills {
+        /* ========== SKILLS SECTION - FIXED ========== */
+        .skills {
             background: var(--darker-bg);
+            padding: 100px 50px;
         }
 
         .skills-grid {
-            max-width: 1400px; /* Tăng max-width */
+            max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Cố định 3 cột */
-            gap: 40px; /* Tăng gap */
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
         }
 
         .skill-category {
+            flex: 1;
             background: rgba(255, 69, 0, 0.05);
-            border: 1px solid rgba(255, 69, 0, 0.2);
+            border: 1px solid rgba(255, 69, 0, 0.3);
             border-radius: 20px;
-            padding: 30px;
-            transition: all 0. 3s ease;
-            min-height: 200px; /* Đảm bảo chiều cao tối thiểu */
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         .skill-category:hover {
             border-color: var(--fire-orange);
-            box-shadow: 0 0 50px rgba(255, 69, 0, 0.2);
+            box-shadow: 0 0 40px rgba(255, 69, 0, 0.2);
         }
 
         .skill-category h3 {
             font-family: 'Orbitron', monospace;
-            font-size: 18px; /* Giảm nhẹ font size */
+            font-size: 16px;
             color: var(--fire-orange);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            white-space: nowrap; /* Không xuống dòng tiêu đề */
+            gap: 8px;
         }
 
-        /* FIX: Skill tags - Tránh chồng chéo */
-        . skill-tags {
+        /* FIX CHÍNH: Skill tags không còn chồng */
+        .skill-tags {
+            display: flex;
+            flex-direction: column; /* Xếp theo chiều dọc */
+            gap: 12px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .skill-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px; /* Giảm gap */
-            align-items: flex-start;
+            gap: 10px;
+            justify-content: center;
         }
 
         .skill-tag {
-            background: rgba(255, 69, 0, 0.15);
+            background: rgba(255, 69, 0, 0.1);
             border: 1px solid var(--fire-orange);
-            padding: 8px 16px; /* Giảm padding */
-            border-radius: 20px;
-            font-size: 13px; /* Giảm font size */
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
             font-weight: 600;
+            color: var(--text-light);
             transition: all 0. 3s ease;
             cursor: default;
-            white-space: nowrap; /* Không wrap text trong tag */
-            flex-shrink: 0; /* Không co lại */
+            display: inline-block;
         }
 
         .skill-tag:hover {
             background: var(--fire-orange);
             color: var(--text-light);
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+            box-shadow: 0 5px 20px rgba(255, 69, 0, 0.4);
         }
 
         /* Projects Section */
-        .projects {
+        . projects {
             background: linear-gradient(180deg, var(--darker-bg), var(--dark-bg));
         }
 
@@ -458,7 +468,7 @@
             gap: 30px;
         }
 
-        .project-card {
+        . project-card {
             background: rgba(13, 17, 23, 0. 8);
             border: 1px solid rgba(255, 69, 0, 0. 3);
             border-radius: 20px;
@@ -483,7 +493,7 @@
             box-shadow: 0 30px 60px rgba(255, 69, 0, 0.3);
         }
 
-        . project-image {
+        .project-image {
             height: 200px;
             background: linear-gradient(135deg, var(--fire-red), var(--fire-orange));
             display: flex;
@@ -687,8 +697,8 @@
             font-weight: 700;
         }
 
-        /* Mobile Responsive */
-        . menu-toggle {
+        /* Mobile Menu Toggle */
+        .menu-toggle {
             display: none;
             flex-direction: column;
             gap: 5px;
@@ -702,9 +712,15 @@
             transition: all 0. 3s ease;
         }
 
-        @media (max-width: 1200px) {
+        /* Responsive */
+        @media (max-width: 1024px) {
             .skills-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 cột cho tablet */
+                flex-wrap: wrap;
+            }
+            
+            .skill-category {
+                flex: 1 1 calc(50% - 15px);
+                min-width: 280px;
             }
         }
 
@@ -717,7 +733,7 @@
                 display: flex;
             }
 
-            . nav-links {
+            .nav-links {
                 position: absolute;
                 top: 100%;
                 left: 0;
@@ -764,28 +780,15 @@
                 grid-template-columns: 1fr;
             }
 
-            /* FIX: Skills responsive - 1 cột */
-            . skills-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .skills-grid {
+                flex-direction: column;
             }
 
             .skill-category {
-                padding: 25px;
+                flex: 1 1 100%;
             }
 
-            .skill-category h3 {
-                font-size: 16px;
-                flex-wrap: wrap;
-                white-space: normal;
-            }
-
-            .skill-tag {
-                padding: 6px 12px;
-                font-size: 12px;
-            }
-
-            . philosophy-cards {
+            .philosophy-cards {
                 grid-template-columns: 1fr;
             }
 
@@ -808,14 +811,14 @@
             }
         }
 
-        /* Animations on scroll */
+        /* Fade in animation */
         . fade-in {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.6s ease;
         }
 
-        .fade-in.visible {
+        .fade-in. visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -890,37 +893,52 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Section - FIXED LAYOUT -->
     <section class="skills" id="skills">
         <h2 class="section-title">🛠️ <span>Tech Stack</span></h2>
         <div class="skills-grid">
+            <!-- Programming Languages -->
             <div class="skill-category fade-in">
                 <h3><i class="fas fa-code"></i> Programming Languages</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">C#</span>
-                    <span class="skill-tag">C++</span>
-                    <span class="skill-tag">JavaScript</span>
+                    <div class="skill-row">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">C++</span>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
                 </div>
             </div>
+
+            <!-- Frameworks & Tools -->
             <div class="skill-category fade-in">
                 <h3><i class="fas fa-rocket"></i> Frameworks & Tools</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">WPF</span>
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">GitHub</span>
-                    <span class="skill-tag">VS Code</span>
+                    <div class="skill-row">
+                        <span class="skill-tag">WPF</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">VS Code</span>
+                    </div>
                 </div>
             </div>
+
+            <!-- Currently Learning -->
             <div class="skill-category fade-in">
                 <h3><i class="fas fa-book"></i> Currently Learning</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Data Structures</span>
-                    <span class="skill-tag">Algorithms</span>
-                    <span class="skill-tag">Web Dev</span>
-                    <span class="skill-tag">IoT</span>
-                    <span class="skill-tag">Database</span>
+                    <div class="skill-row">
+                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">Algorithms</span>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-tag">Web Dev</span>
+                        <span class="skill-tag">IoT</span>
+                        <span class="skill-tag">Database</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -942,7 +960,7 @@
                     </div>
                     <div class="project-links">
                         <a href="https://NguyenTienDung7749.github.io/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="https://github.com/NguyenTienDung7749" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://github. com/NguyenTienDung7749" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
@@ -991,7 +1009,7 @@
             </div>
             <div class="philosophy-card fade-in">
                 <h3>🎵 Code with Music</h3>
-                <p>Code + Music = Fire Mode. Trong xã hội này nhiều cám dỗ đang bủa vây.  Nếu không tỉnh táo mày chỉ có đo đất. </p>
+                <p>Code + Music = Fire Mode.  Trong xã hội này nhiều cám dỗ đang bủa vây.  Nếu không tỉnh táo mày chỉ có đo đất.</p>
             </div>
         </div>
     </section>
@@ -1062,8 +1080,7 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    // Close mobile menu after clicking
-                    document. getElementById('navLinks'). classList.remove('active');
+                    document.getElementById('navLinks').classList.remove('active');
                 }
             });
         });
@@ -1071,7 +1088,7 @@
         // Initialize
         createParticles();
         window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Initial check
+        handleScroll();
     </script>
 </body>
 </html>
